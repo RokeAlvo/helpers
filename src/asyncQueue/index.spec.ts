@@ -60,10 +60,6 @@ describe('asyncQueue', () => {
         queue = new AsyncQueue(workers, executeList);
     })
 
-    it('should be defined', () => {
-        expect(queue).toBeDefined()
-    })
-
     it('mock workers is fine', async () => {
         const worker = getWorkersPull()[0]
         const result = await worker(executeList[0])
