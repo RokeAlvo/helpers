@@ -1,0 +1,8 @@
+{
+  "name": "helpers",
+  "version": "0.0.0",
+  "description": "helpers module",
+  "main": "index.js",
+  "author": "RokeAlvo",
+  "license": "MIT"
+}
