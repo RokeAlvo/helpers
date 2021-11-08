@@ -1,6 +1,6 @@
 {
   "name": "@rokealvo/helpers",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "helpers module",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -26,7 +26,6 @@
   },
   "scripts": {
     "build": "tsc",
-    "publish": "publish --access public",
     "test": "jest",
     "test:c": "jest --coverage",
     "lint": "eslint --fix"
