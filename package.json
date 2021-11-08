@@ -6,6 +6,12 @@
   "typings": "dist/index.d.ts",
   "author": "rokealvo@gmail.com",
   "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "test:c": "jest --coverage",
+    "lint": "eslint --fix"
+  },
   "devDependencies": {
     "@babel/core": "^7.16.0",
     "@babel/preset-env": "^7.16.0",
@@ -22,15 +28,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.1",
     "jest": "^27.3.1",
-    "typescript": "^4.4.4"
-  },
-  "scripts": {
-    "build": "tsc",
-    "test": "jest",
-    "test:c": "jest --coverage",
-    "lint": "eslint --fix"
-  },
-  "dependencies": {
+    "typescript": "^4.4.4",
     "abab": "^2.0.5",
     "acorn": "^8.5.0",
     "acorn-globals": "^6.0.0",
