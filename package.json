@@ -1,6 +1,6 @@
 {
   "name": "@rokealvo/helpers",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "helpers module",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
