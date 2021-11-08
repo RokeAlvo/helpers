@@ -1,3 +1,5 @@
+import { rejectAfter } from '../rejectAfter'
+
 type TaskState = 'finished' | 'pending' | 'inWork'
 
 type Task<WA, WR> = {
@@ -13,8 +15,10 @@ type Result<WR> = {
 }
 
 export class AsyncQueue<WorkerArgs, WorkerResult> {
-  constructor (private readonly workers: ((args: WorkerArgs) => Promise<WorkerResult>)[],
-                private readonly argsList: WorkerArgs[]
+  constructor (
+      private readonly workers: ((args: WorkerArgs) => Promise<WorkerResult>)[],
+      private readonly argsList: WorkerArgs[],
+      private readonly timout?: number
   ) {
     this.createQueue()
   }
@@ -33,7 +37,15 @@ export class AsyncQueue<WorkerArgs, WorkerResult> {
     if (task === undefined) return
     task.state = 'inWork'
     try {
-      const result = await worker(task.workerArgs)
+      let result
+      if (this.timout) {
+        result = await Promise.race([
+          rejectAfter(this.timout, 'timout'),
+          worker(task.workerArgs)
+        ])
+      } else {
+        result = await worker(task.workerArgs)
+      }
       task.result = result as unknown as WorkerResult
     } catch (e) {
       task.error = e as Error
