@@ -25,6 +25,8 @@
     "typescript": "^4.4.4"
   },
   "scripts": {
+    "build": "tsc",
+    "publish": "publish --access public",
     "test": "jest",
     "test:c": "jest --coverage",
     "lint": "eslint --fix"
