@@ -1,3 +1,9 @@
+/**
+ * Возвращает функцию, которая создаст функцию принимающую параметры
+ * и возвращающую строку с подставленными значениями
+ * @param str
+ * @param options
+ */
 export function strTemplate (str: string, options = {
   separator: '{}'
 }) {
